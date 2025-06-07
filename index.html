@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Digital Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f6f5;
+      color: #333333;
+      position: relative;
+      z-index: 1;
+      padding-top: 60px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #005f73;
+      color: #ffffff;
+      padding: 12px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .navbar .brand p {
+      font-size: 20px;
+      font-weight: bold;
+      position: relative;
+      z-index: 4;
+    }
+
+    .burger {
+      display: none;
+      font-size: 24px;
+      color: #94d2bd;
+      cursor: pointer;
+      position: relative;
+      z-index: 4;
+    }
+
+    nav {
+      position: relative;
+      z-index: 4;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      position: relative;
+      z-index: 4;
+    }
+
+    nav ul li {
+      margin-left: 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #94d2bd;
+      font-weight: bold;
+      transition: color 0.3s;
+      position: relative;
+      z-index: 4;
+    }
+
+    nav ul li a:hover {
+      color: #e9d8a6;
+    }
+
+    canvas#menu-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      background: transparent;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 10px;
+      background: linear-gradient(90deg, #005f73, #0a9396);
+      color: #ffffff;
+      z-index: 1;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 36px;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #94d2bd;
+      border-bottom: 2px solid #0a9396;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #ee9b00;
+      padding-left: 20px;
+      border-left: 3px solid #94d2bd;
+      margin: 20px 0;
+    }
+
+    img, .case-image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 15px;
+      border: 2px solid #94d2bd;
+    }
+
+    footer {
+      background-color: #005f73;
+      color: #ffffff;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+      z-index: 1;
+      margin-top: 40px;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 15px;
+        justify-content: space-between;
+      }
+
+      .navbar .brand p {
+        font-size: 18px;
+      }
+
+      .burger {
+        display: block;
+        margin-left: auto;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: row;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #005f73;
+        padding: 10px 15px;
+        justify-content: space-around;
+        z-index: 4;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 0 10px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      canvas#menu-bg {
+        height: 100%;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      section {
+        padding: 30px 15px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      img, .case-image {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <canvas id="menu-bg"></canvas>
+  <div class="brand">
+    <p>JOANNA MARIE B. DANCEL</p>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#objectives">Objectives</a></li>
+      <li><a href="#reflection">Reflection</a></li>
+      <li><a href="#case">Case Study</a></li>
+      <li><a href="#pledge">Ethics Pledge</a></li>
+    </ul>
+  </nav>
+  <div class="burger">☰</div>
+</div>
+
+<header>
+  <h1>My Digital Portfolio</h1>
+</header>
+
+<section id="intro">
+  <h2>1. Introduction</h2>
+  <p>
+    ITEC 23 - Social and Professional Issues in IT has deepened my understanding of the ethical, legal, and societal responsibilities of an IT professional.
+    From discussions on data privacy and security to digital rights and cybercrime, this course allowed me to explore the pressing issues in today’s digital society.
+  </p>
+  <p>
+    What particularly captured my interest were the real-world implications of unethical computing practices and the importance of ethical decision-making.
+    These issues matter to me because as a future IT professional, I recognize the power and responsibility that come with creating and managing technology.
+  </p>
+</section>
+
+<section id="objectives">
+  <h2>2. Objectives</h2>
+  <p>
+    This portfolio aims to document and showcase my learning journey in ITEC 23. It demonstrates my understanding of key ethical concepts, real-world cases, and professional responsibilities in Information Technology.
+  </p>
+</section>
+
+<section id="reflection">
+  <h2>3. Reflection</h2>
+  <p>
+    Throughout the course, I encountered ethical dilemmas involving privacy, surveillance, plagiarism, and digital piracy. Analyzing these situations taught me to think critically and weigh multiple perspectives before forming judgments.
+  </p>
+  <p>
+    I’ve learned that ethical decisions are not always black and white, but require careful thought, empathy, and integrity. I now understand the long-term consequences of unethical choices and the importance of standing by strong moral values.
+  </p>
+  <p>
+    As a future IT professional, I commit to applying ethical principles in all my work—whether in developing software, handling data, or working with clients and peers.
+  </p>
+  <div class="quote">"With great power comes great responsibility." – Uncle Ben, Spider-Man</div>
+</section>
+
+<section id="case">
+  <h2>4. Case Study: Medusa Ransomware Attack</h2>
+
+  <h3>4.1 Summary</h3>
+  <p>
+    Medusa is a ransomware group known for targeting institutions and threatening to leak stolen data unless a ransom is paid. In a 2023 attack, they compromised a hospital’s systems, encrypting patient records and demanding millions in cryptocurrency.
+  </p>
+
+  <h3>4.2 Ethical Issues</h3>
+  <p>
+    This case presents several ethical concerns: violation of patient privacy, exploitation for profit, and deliberate disruption of critical healthcare services.
+  </p>
+
+  <h3>4.3 Application of Ethical Theories</h3>
+  <p>
+    From a deontological perspective, Medusa’s actions are inherently unethical regardless of the outcome, as they violate basic duties of respect and non-maleficence.
+    Virtue ethics would highlight the lack of moral character, empathy, and integrity in such acts.
+  </p>
+
+  <h3>4.4 Ethical Solutions</h3>
+  <p>
+    Stronger cybersecurity policies, ethical hacking education, and international cooperation to track cybercriminals are key solutions. Promoting ethical awareness in tech development can also reduce vulnerabilities exploited by such attacks.
+  </p>
+
+ <img src="https://senlainc.com/wp-content/uploads/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0-1440%D1%851116.jpg" alt="Medusa ransomware case screenshot" class="case-image" />
+
+</section>
+
+<section id="pledge">
+  <h2>5. Professional Ethics Pledge</h2>
+  <p>
+    As an aspiring IT professional, I solemnly pledge to:
+  </p>
+  <ul>
+    <li>Respect the privacy and data of all users I serve.</li>
+    <li>Design and code with honesty, integrity, and fairness.</li>
+    <li>Use technology to empower, not exploit.</li>
+    <li>Report unethical behavior and stand against digital injustice.</li>
+    <li>Continuously educate myself on responsible tech practices.</li>
+  </ul>
+  <p>
+    These principles matter to me because technology influences millions of lives. I want to ensure my work leaves a positive and ethical footprint in the digital world.
+  </p>
+</section>
+
+<footer>
+  <p>© 2025 Joanna Marie B. Dancel | ITEC 23 - Portfolio</p>
+</footer>
+
+<script>
+  const canvas = document.getElementById('menu-bg');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = document.querySelector('.navbar').offsetHeight;
+
+  let particlesArray = [];
+  const numParticles = 100;
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.radius = Math.random() * 2 + 1;
+      this.dx = (Math.random() - 0.5) * 1.5;
+      this.dy = (Math.random() - 0.5) * 1.5;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#94d2bd';
+      ctx.fill();
+    }
+
+    update() {
+      if (this.x + this.radius > canvas.width || this.x - this.radius < 0) this.dx *= -1;
+      if (this.y + this.radius > canvas.height || this.y - this.radius < 0) this.dy *= -1;
+      this.x += this.dx;
+      this.y += this.dy;
+      this.draw();
+    }
+  }
+
+  function init() {
+    particlesArray = [];
+    for (let i = 0; i < numParticles; i++) {
+      particlesArray.push(new Particle());
+    }
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particlesArray.forEach((particle, idx) => {
+      particle.update();
+
+      for (let j = idx + 1; j < particlesArray.length; j++) {
+        const dx = particle.x - particlesArray[j].x;
+        const dy = particle.y - particlesArray[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 100) {
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(148, 210, 189, 0.2)';
+          ctx.moveTo(particle.x, particle.y);
+          ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+          ctx.stroke();
+        }
+      }
+    });
+  }
+
+  init();
+  animate();
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = document.querySelector('.navbar').offsetHeight;
+    init();
+  });
+
+  // Burger Menu Toggle
+  const burger = document.querySelector('.burger');
+  const navUl = document.querySelector('nav ul');
+
+  burger.addEventListener('click', () => {
+    navUl.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
