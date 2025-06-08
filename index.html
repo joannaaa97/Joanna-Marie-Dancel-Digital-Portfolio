@@ -26,6 +26,11 @@
       --gradient: linear-gradient(135deg, #0A0F44, #33A8C7);
     }
 
+    body.dark-mode #ethics-pledge .text-content p[style*="background-color: #f5f5f5"] {
+      color: var(--text-color) !important;
+      background-color: var(--card-bg) !important;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -68,30 +73,30 @@
       50% { opacity: 0.8; }
       100% { transform: translateY(-20vh) scale(1.1); opacity: 0; }
     }
-/* Header */
-header {
-  background: var(--gradient);
-  color: #fff;
-  text-align: center;
-  padding: 20px 10px; /* slightly reduced padding */
-  position: relative;
-  overflow: hidden;
-}
 
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem; /* reduced from 3.8rem */
-  margin-bottom: 8px;
-  animation: fadeIn 1s ease-out;
-}
+    /* Header */
+    header {
+      background: var(--gradient);
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      position: relative;
+      overflow: hidden;
+    }
 
-header p {
-  font-size: 1rem; /* reduced from 1.3rem */
-  opacity: 0.9;
-  animation: fadeIn 1.2s ease-out 0.2s forwards;
-  margin: 4px 0; /* added tighter spacing */
-}
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 8px;
+      animation: fadeIn 1s ease-out;
+    }
 
+    header p {
+      font-size: 1rem;
+      opacity: 0.9;
+      animation: fadeIn 1.2s ease-out 0.2s forwards;
+      margin: 4px 0;
+    }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -227,7 +232,8 @@ header p {
     .card:hover img {
       transform: scale(1.05);
     }
-        .cardd img {
+
+    .cardd img {
       width: 300px;
       height: 500px;
       object-fit: cover;
@@ -288,45 +294,81 @@ header p {
       transform: translateX(5px);
     }
 
-/* Footer */
-footer {
-  background: var(--gradient);
-  color: #fff;
-  text-align: center;
-  padding: 25px 15px; /* reduced padding */
-  position: relative;
-}
+    /* Ethics Pledge Animation */
+    #ethics-pledge .text-content p span.pledge-item {
+      display: block;
+      padding: 8px 12px;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      background: rgba(255, 140, 102, 0.1); /* Subtle background using accent color */
+    }
 
-footer h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem; /* reduced from 1.8rem */
-  margin-bottom: 10px;
-}
+    #ethics-pledge .text-content p span.pledge-item:hover {
+      transform: translateX(10px) scale(1.02);
+      background: rgba(255, 140, 102, 0.3);
+      color: var(--accent-color);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
 
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 16px; /* slightly smaller spacing */
-  margin: 16px 0;
-}
+    /* Ethics Pledge Images */
+    #ethics-pledge .image-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-.social-icons img {
-  width: 28px; /* reduced from 36px */
-  height: 28px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
+    #ethics-pledge .image-container img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px 0 0 10px;
+      transition: transform 0.3s ease;
+    }
 
-.social-icons img:hover {
-  transform: scale(1.2) rotate(5deg); /* slightly smaller hover effect */
-  filter: brightness(1.15);
-}
+    #ethics-pledge .card:hover .image-container img {
+      transform: scale(1.05);
+    }
 
-footer p {
-  font-size: 0.8rem; /* reduced from 0.9rem */
-  opacity: 0.85;
-  margin: 4px 0;
-}
+    /* Footer */
+    footer {
+      background: var(--gradient);
+      color: #fff;
+      text-align: center;
+      padding: 25px 15px;
+      position: relative;
+    }
 
+    footer h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2) rotate(5deg);
+      filter: brightness(1.15);
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      opacity: 0.85;
+      margin: 4px 0;
+    }
 
     /* Responsive Design */
     @media (max-width: 768px) {
@@ -376,6 +418,12 @@ footer p {
         border-radius: 10px 10px 0 0;
       }
 
+      #ethics-pledge .image-container img {
+        width: 100%;
+        height: 150px;
+        border-radius: 10px 10px 0 0;
+      }
+
       .text-content {
         padding: 20px;
       }
@@ -393,19 +441,23 @@ footer p {
       header p {
         font-size: 0.9rem;
       }
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; /* space between dark mode and hamburger */
-}
+
+      .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
       .navbar {
         padding: 8px 15px;
         justify-content: space-between;
       }
-.brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
+
+      .brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
       .toggle-btn {
         padding: 6px 12px;
         font-size: 0.8rem;
@@ -423,18 +475,18 @@ footer p {
         font-size: 0.9rem;
       }
     }
-    .container {
-      
-      width: 365px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* optional: centers the images */
-  gap: 1rem; /* optional: space between images */
-}
 
-.cardd img {
-  max-width: 100%;
-}
+    .container {
+      width: 365px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cardd img {
+      max-width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -458,10 +510,10 @@ footer p {
         <li><a href="#ethics-pledge">Ethics Pledge</a></li>
       </ul>
     </nav>
-  <div class="nav-controls">
-    <button class="toggle-btn" onclick="document.body.classList.toggle('dark-mode')">🌙 Dark Mode</button>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-  </div>
+    <div class="nav-controls">
+      <button class="toggle-btn" onclick="document.body.classList.toggle('dark-mode')">🌙 Dark Mode</button>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
   </div>
 
   <section id="introduction">
@@ -481,7 +533,7 @@ footer p {
         <h2>Objectives</h2>
         <p>This portfolio aims to demonstrate the knowledge I have gained in ITEC 23, specifically in the areas of ethics, professionalism, data protection, and responsible IT practice. It also reflects my personal understanding of how these topics influence my role as a future IT professional.</p>
       </div>
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="Analyzing software licensing" />    
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="Analyzing software licensing" />    
     </div>
   </section>
 
@@ -518,23 +570,34 @@ footer p {
             Most importantly, the Cebuana Lhuillier case reinforces the need for businesses to treat data privacy not only as a legal requirement but also as a professional and ethical obligation to the people they serve.
         </p>
       </div>
-<div class="container">
-  <img src="https://media.philstar.com/photos/2019/01/19/npc-cebuana_2019-01-19_17-45-58.jpg" alt="Cebuana 2019 Case" />
-
-  <div class="cardd">
-    <img src="https://sa.kapamilya.com/absnews/abscbnnews/media/2019/news/01/19/cebuana_1.jpg" alt="Cebuana 2019 Case" />
-  </div>
-</div>
+      <div class="container">
+        <img src="https://media.philstar.com/photos/2019/01/19/npc-cebuana_2019-01-19_17-45-58.jpg" alt="Cebuana 2019 Case" />
+        <div class="cardd">
+          <img src="https://sa.kapamilya.com/absnews/abscbnnews/media/2019/news/01/19/cebuana_1.jpg" alt="Cebuana 2019 Case" />
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="ethics-pledge">
     <div class="card">
-      <img src="https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg" alt="Team analyzing software" />
+      <div class="image-container">
+        <img src="https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg" alt="Team analyzing software" />
+        <img src="https://img.freepik.com/premium-photo/business-man-pledging_488220-84906.jpg" alt="Pledging" />
+      </div>
       <div class="text-content">
         <h2>Professional Ethics Pledge</h2>
         <p>As I prepare to enter the IT profession, I commit to the following principles:</p>
-        <p>I will protect the privacy and confidentiality of any data I handle. I will not use or distribute software without proper authorization. I will comply with intellectual property laws and give credit to others’ work when due. I will act honestly in all my projects and maintain transparency in how I represent my skills, services, or software. I will make decisions based on fairness, legal compliance, and professional standards. I will continue learning about ethical practices and follow current laws related to technology. Finally, I will use my knowledge and skills to contribute positively to both my organization and society.</p>
+        <p>
+          <span class="pledge-item">I will protect the privacy and confidentiality of any data I handle.</span>
+          <span class="pledge-item">I will not use or distribute software without proper authorization.</span>
+          <span class="pledge-item">I will comply with intellectual property laws and give credit to others’ work when due.</span>
+          <span class="pledge-item">I will act honestly in all my projects and maintain transparency in how I represent my skills, services, or software.</span>
+          <span class="pledge-item">I will make decisions based on fairness, legal compliance, and professional standards.</span>
+          <span class="pledge-item">I will continue learning about ethical practices and follow current laws related to technology.</span>
+          <span class="pledge-item">I will use my knowledge and skills to contribute positively to both my organization and society.</span>
+        </p>
+        <p style="margin-top: 1em; font-weight: 300; font-size: 0.9em; margin-left: 1em; background-color: #f5f5f5; padding: 1em; color: #000;">Each of these commitments reflects what I’ve learned in ITEC 23 about professionalism, responsibility, and ethical conduct in the IT field. Respecting privacy aligns with the Data Privacy Act (RA 10173), and avoiding software piracy upholds intellectual property rights (RA 8293). Honesty and fairness ensure that my work contributes positively to others and builds trust in the systems I help create. Following the law and continuously learning are not just duties, they are part of what it means to be a responsible and effective IT professional in today’s world.</p>
       </div>
     </div>
   </section>
